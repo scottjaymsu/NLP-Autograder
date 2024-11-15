@@ -30,8 +30,8 @@ The Natural Language Processing (NLP) Essay Autograder is a system designed to a
 ![{98DEBB03-B69E-4908-ACFD-99EA2738AEC0}](https://github.com/user-attachments/assets/5814c0a6-ab1e-41a5-96a8-919206b45184)
 ---
 #### As displayed above, the model's training accuracy is improving signifcantly, but the validation accuracy is lagging, which could indicate overfitting. Therefore, further iterative improvements are included below to address this.
-![{80BAC0B2-2B6E-48C9-9AC3-62997D7040C9}](https://github.com/user-attachments/assets/a357fc33-474d-4ccd-8367-4d22b32b84d5)
-
+![{C2797F21-5ADD-401F-B765-6014D1840562}](https://github.com/user-attachments/assets/13ca025e-9b2e-489f-a850-9b162c982235)
+---
 - Precision (Macro): 0.29573581508760566
 - Recall (Macro): 0.2573651421894449
 - F1 Score (Macro): 0.26400296809006835
@@ -42,9 +42,9 @@ The Natural Language Processing (NLP) Essay Autograder is a system designed to a
 - Recall (Weighted): 0.38554645781416874
 - F1 Score (Weighted): 0.37703300183006944
 - Overall Accuracy: 0.38554645781416874
-
+---
 ![{9E3E9FC3-E9F3-4D57-BC15-FCA4FB576FF3}](https://github.com/user-attachments/assets/1adab5a1-707f-4e9b-ad94-f077accf3287)
-
+---
 ![{6DD5BAC0-FB12-48F1-9362-B8935BAB3326}](https://github.com/user-attachments/assets/a94e066d-6f1a-4be0-b021-2024b2f713ea)
 
 ## CNN

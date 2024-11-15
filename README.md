@@ -51,13 +51,19 @@ The Natural Language Processing (NLP) Essay Autograder is a system designed to a
 
 --------------------------------------------------------------------------------------------------------------------------------
 
+![image](https://github.com/user-attachments/assets/562b6347-a542-456d-b565-e9219b4baf79)
+
 **CNN (Myles)** <br>
 Training Accuracy: 0.985 <br>
 Evaluation (5-fold CV) Accuracy: 0.573 <br>
-Testing Accuracy: 0.550 <br>
+Testing Accuracy: 0.5288 <br>
+
+![image](https://github.com/user-attachments/assets/ae4b1ce4-94a4-4697-b89d-dceac526808d)
 
 **Overview:**
 The Bag of Words pre-processing technique is used to convert text into tokenized form before training the SVM model. Hyperparameter tuning was conducted to select the best model configuration using a 5-fold cross-validation approach. The final scores, evaluated with accuracy as the performance metric:
+
+![image](https://github.com/user-attachments/assets/22d1afa4-ba49-4780-b091-81714973e4d6)
 
 **Training Accuracy:**
 This metric reflects the model's performance on the data it was trained on. A high training accuracy suggests that the model is able to learn and correctly classify most of the patterns in the training dataset.
@@ -76,6 +82,8 @@ Evaluation accuracy is 0.573, which is much lower than the training accuracy. Th
 Testing accuracy is the final metric that measures how well the model performs on completely unseen data. It represents real-world performance since the test dataset is not used during model training or evaluation. Model Deployment Readiness: Testing accuracy reflects how the model is expected to perform in practical scenarios.
 
 The model demonstrates strong learning ability with a high training accuracy of 0.985, indicating it effectively captures patterns in the training data. However, the evaluation accuracy of 0.573 and testing accuracy of 0.550 suggest moderate generalization to unseen data. The close alignment between evaluation and testing accuracies confirms that the cross-validation process reliably estimated the model's real-world performance. While there is no significant overfitting or underfitting, the noticeable gap between training and evaluation/testing accuracies suggests the model may overfit slightly to the training data. To improve, the model could benefit from regularization, refined feature engineering, or more diverse training data to better capture broader patterns. Despite this, the alignment of evaluation and testing scores provides confidence that the model is well-calibrated for deployment. Further optimization could enhance performance, but the current metrics indicate a functional and reliable model for practical use.
+
+---------------------------------------------------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------------------------------------------
 

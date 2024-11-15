@@ -50,7 +50,7 @@ The Natural Language Processing (NLP) Essay Autograder is a system designed to a
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-**## CNN (Myles)** <br>
+**CNN (Myles)** <br>
 Training Accuracy: 0.985 <br>
 Evaluation (5-fold CV) Accuracy: 0.573 <br>
 Testing Accuracy: 0.550 <br>

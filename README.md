@@ -42,6 +42,7 @@ The Natural Language Processing (NLP) Essay Autograder is a system designed to a
 - Recall (Weighted): 0.38554645781416874
 - F1 Score (Weighted): 0.37703300183006944
 - Overall Accuracy: 0.38554645781416874
+- Quadratic Weighted Kappa (QWK): 0.41340393076209814
 ---
 ![{9E3E9FC3-E9F3-4D57-BC15-FCA4FB576FF3}](https://github.com/user-attachments/assets/1adab5a1-707f-4e9b-ad94-f077accf3287)
 ---

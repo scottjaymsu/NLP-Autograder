@@ -16,6 +16,7 @@ The Natural Language Processing (NLP) Essay Autograder is a system designed to a
 3. [Recurrent Neural Network (RNN)](#rnn)
 4. [Convolution Neural Network (CNN)](#cnn)
 5. [Bidirectional Encoder Representations from Transformers (BERT)](#bert)
+6. [Fully-Connected Neural Network](#fully-connected-nn)
 
 ---
 
@@ -77,6 +78,23 @@ Testing accuracy is the final metric that measures how well the model performs o
 The model demonstrates strong learning ability with a high training accuracy of 0.985, indicating it effectively captures patterns in the training data. However, the evaluation accuracy of 0.573 and testing accuracy of 0.550 suggest moderate generalization to unseen data. The close alignment between evaluation and testing accuracies confirms that the cross-validation process reliably estimated the model's real-world performance. While there is no significant overfitting or underfitting, the noticeable gap between training and evaluation/testing accuracies suggests the model may overfit slightly to the training data. To improve, the model could benefit from regularization, refined feature engineering, or more diverse training data to better capture broader patterns. Despite this, the alignment of evaluation and testing scores provides confidence that the model is well-calibrated for deployment. Further optimization could enhance performance, but the current metrics indicate a functional and reliable model for practical use.
 
 ---------------------------------------------------------------------------------------------------------------------
+
+## Fully-Connected NN
+
+Performed text cleaning and tokenization using Python’s Natural Language Toolkit, then used Word2Vec to create feature vectors representing the data. Trained a fully connected NN with 3 layers. 
+
+
+Training Accuracy: 0.57
+Evaluation (5 fold CV) Accuracy: 0.4
+Testing Accuracy: 0.41
+
+
+Low accuracy during training indicates that the model is underfitting. Given enough training data and computational resources, it is possible that a simple fully connected NN may be capable of fitting data with higher accuracy, but given the fact that 1000 epochs were already used it would likely take a very high amount of epochs to produce an accurate result. In addition, accurate results on training & testing given an even higher amount of epochs would likely be overfit. Therefore, it is reasonable to conclude that a 3 layer perceptron is not the best choice of model for this task.
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+
 
 ## BERT
 

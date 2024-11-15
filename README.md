@@ -81,14 +81,15 @@ The model demonstrates strong learning ability with a high training accuracy of 
 
 ## Fully-Connected NN
 
-Performed text cleaning and tokenization using Python’s Natural Language Toolkit, then used Word2Vec to create feature vectors representing the data. Trained a fully connected NN with 3 layers. <br>
+**Overview:**
+Performed text cleaning and tokenization using Python’s Natural Language Toolkit, then used Word2Vec to create feature vectors representing the data. After preprocessing was completed, fully connected neural network with 3 layers was trained using 1000 epochs. Performed 5-fold cross validation. Performed final test on test split of data.
 
 
 Training Accuracy: 0.57 <br>
 Evaluation (5 fold CV) Accuracy: 0.4 <br>
 Testing Accuracy: 0.41 <br>
 
-
+**Analysis:**
 Low accuracy during training indicates that the model is underfitting. Given enough training data and computational resources, it is possible that a simple fully connected NN may be capable of fitting data with higher accuracy, but given the fact that 1000 epochs were already used it would likely take a very high amount of epochs to produce an accurate result. In addition, accurate results on training & testing given an even higher amount of epochs would likely be overfit. Therefore, it is reasonable to conclude that a 3 layer perceptron is not the best choice of model for this task.
 
 

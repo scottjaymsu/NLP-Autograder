@@ -60,7 +60,7 @@ The Bag of Words pre-processing technique is used to convert text into tokenized
 Training Accuracy: **0.985**
 Evaluation (5-fold CV) Accuracy: **0.573**
 Testing Accuracy: **0.550**
-**1. Training Accuracy:**
+**Training Accuracy:**
 This metric reflects the model's performance on the data it was trained on. A high training accuracy suggests that the model is able to learn and correctly classify most of the patterns in the training dataset.
 Why It Matters:
 Indicator of Model Learning: If training accuracy is too low, it means the model is not capturing patterns effectively, which may indicate underfitting.

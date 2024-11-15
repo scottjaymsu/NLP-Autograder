@@ -71,6 +71,8 @@ Training: 64% <br>
 Testing: 57%<br>
 Validation: 59% <br>
 
+---------------
+
 Overview: used Bag of Words pre-processing step to convert text to tokenized form. Then trained SVM model, conducted hyperparameter tuning to choose best model based on evaluation splits: 5-fold CV error. Final model scores as follows, loss metric was accuracy:
 
 

@@ -22,8 +22,32 @@ The Natural Language Processing (NLP) Essay Autograder is a system designed to a
 
 ## Linear Regression
 
+---
 ## Support Vector Machine
+### Mean and Standard Deviation of Each Hyperparameter
+The table below shows the results from the grid search for different combinations of hyperparameters (`C` and `kernel`) for the SVM model. The results include the mean and standard deviation of the training and test scores across the 5 folds of cross-validation.
 
+| `mean_fit_time` | `std_fit_time` | `mean_score_time` | `std_score_time` | `param_C` | `param_kernel` | `params`                               | `split0_test_score` | `split1_test_score` | `split2_test_score` | `split3_test_score` | `split4_test_score` | `mean_test_score` | `std_test_score` | `rank_test_score` |
+|-----------------|----------------|-------------------|------------------|-----------|----------------|----------------------------------------|---------------------|---------------------|---------------------|---------------------|---------------------|-------------------|------------------|-------------------|
+| 21.92           | 0.27           | 4.35              | 0.05             | 1         | linear         | `{'C': 1, 'kernel': 'linear'}`         | 0.504195            | 0.544463            | 0.507137            | 0.502939            | 0.521411            | 0.516029          | 0.015671          | 6                 |
+| 25.38           | 0.17           | 4.65              | 0.05             | 1         | poly           | `{'C': 1, 'kernel': 'poly'}`           | 0.478188            | 0.493289            | 0.492024            | 0.476071            | 0.485306            | 0.484975          | 0.006989          | 9                 |
+| 20.31           | 0.13           | 5.63              | 0.02             | 1         | rbf            | `{'C': 1, 'kernel': 'rbf'}`            | 0.567114            | 0.582215            | 0.559194            | 0.563392            | 0.567590            | 0.567901          | 0.007768          | 2                 |
+| 15.72           | 0.17           | 4.15              | 0.05             | 1         | sigmoid        | `{'C': 1, 'kernel': 'sigmoid'}`        | 0.470638            | 0.476510            | 0.450882            | 0.452561            | 0.460118            | 0.462142          | 0.010013          | 12                |
+| 21.65           | 0.32           | 4.28              | 0.02             | 5         | linear         | `{'C': 5, 'kernel': 'linear'}`         | 0.504195            | 0.544463            | 0.507137            | 0.502939            | 0.521411            | 0.516029          | 0.015671          | 6                 |
+| 27.14           | 0.37           | 4.64              | 0.04             | 5         | poly           | `{'C': 5, 'kernel': 'poly'}`           | 0.520973            | 0.531040            | 0.511335            | 0.522250            | 0.519731            | 0.521066          | 0.006283          | 5                 |
+| 25.13           | 0.20           | 5.63              | 0.02             | 5         | rbf            | `{'C': 5, 'kernel': 'rbf'}`            | 0.565436            | 0.590604            | 0.575987            | 0.570109            | 0.555835            | 0.571594          | 0.011568          | 1                 |
+| 12.09           | 0.35           | 3.63              | 0.05             | 5         | sigmoid        | `{'C': 5, 'kernel': 'sigmoid'}`        | 0.450503            | 0.497483            | 0.473552            | 0.451721            | 0.445844            | 0.463821          | 0.019364          | 11                |
+| 21.78           | 0.20           | 4.31              | 0.04             | 10        | linear         | `{'C': 10, 'kernel': 'linear'}`        | 0.504195            | 0.544463            | 0.507137            | 0.502939            | 0.521411            | 0.516029          | 0.015671          | 6                 |
+| 28.06           | 1.64           | 4.61              | 0.02             | 10        | poly           | `{'C': 10, 'kernel': 'poly'}`          | 0.539430            | 0.534396            | 0.525609            | 0.532326            | 0.520571            | 0.530466          | 0.006645          | 4                 |
+| 25.38           | 0.12           | 5.67              | 0.02             | 10        | rbf            | `{'C': 10, 'kernel': 'rbf'}`           | 0.554530            | 0.588926            | 0.568430            | 0.568430            | 0.553317            | 0.566727          | 0.012862          | 3                 |
+| 11.07           | 0.10           | 3.45              | 0.04             | 10        | sigmoid        | `{'C': 10, 'kernel': 'sigmoid'}`       | 0.447987            | 0.489094            | 0.465155            | 0.459278            | 0.466835            | 0.465670          | 0.013445          | 10                |
+
+#### Optimal Hyperameters : {'C': 5, 'kernel': 'rbf'}
+#### 5-fold Cross-Validation Score : 5-fold CV error: 0.5715942837500493
+#### Test Set Accuracy : 0.5462382445141066
+#### Final training error : 0.9926137317441666
+#### Final test score : 0.554858934169279
+---
 ## RNN
 ### Initial RNN Model Summary
 ![{F624C53E-2B0F-435B-A109-4EB8CD6FD366}](https://github.com/user-attachments/assets/4a4f9778-acad-4455-baf8-fc6acc3b401a)

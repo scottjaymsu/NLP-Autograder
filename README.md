@@ -71,4 +71,15 @@ Training: 64% <br>
 Testing: 57%<br>
 Validation: 59% <br>
 
+---------------
 
+Overview: used Bag of Words pre-processing step to convert text to tokenized form. Then trained SVM model, conducted hyperparameter tuning to choose best model based on evaluation splits: 5-fold CV error. Final model scores as follows, loss metric was accuracy:
+
+
+Training Accuracy: 0.992
+Evaluation (5-fold CV) Accuracy: 0.571
+Testing Accuracy: 0.554
+
+
+Analysis
+The training accuracy is extremely high, which means that the model is almost certainly not underfitted. Looking at the evaluation accuracy and the testing accuracy, it can be seen that since they are extremely close, that the model was properly fit. In other words, the 5-fold cross validation accuracy is meant to represent what the testing accuracy would be. Since it is so close to the actual testing accuracy, this indicates that the model can’t be fitted any further.

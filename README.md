@@ -51,15 +51,9 @@ The Natural Language Processing (NLP) Essay Autograder is a system designed to a
 --------------------------------------------------------------------------------------------------------------------------------
 
 **## CNN (Myles)** <br>
-Cross Entropy: <br>
-Training: 0.89 <br>
-Testing: 1.05 <br> 
-Validation: 1.01 <br>
-
-Accuracy: <br>
-Training: 64% <br>
-Testing: 52.88% <br>
-Validation: 59% <br>
+Training Accuracy: 0.985 <br>
+Evaluation (5-fold CV) Accuracy: 0.573 <br>
+Testing Accuracy: 0.550 <br>
 
 **Overview**
 The Bag of Words pre-processing technique is used to convert text into tokenized form before training the SVM model. Hyperparameter tuning was conducted to select the best model configuration using a 5-fold cross-validation approach. The final scores, evaluated with accuracy as the performance metric:

@@ -12,10 +12,10 @@ The Natural Language Processing (NLP) Essay Autograder is a system designed to a
 
 ## Models
 1. [Support Vector Machine  (SVM)](#support-vector-machine)
-2. [Recurrent Neural Network (RNN)](#rnn)
-3. [Convolution Neural Network (CNN)](#cnn)
-4. [Bidirectional Encoder Representations from Transformers (BERT)](#bert)
-5. [Fully-Connected Neural Network](#fully-connected-nn)
+2. [Recurrent Neural Network (RNN)](#rnn (Jay))
+3. [Convolution Neural Network (CNN)](#cnn (Myles))
+4. [Fully-Connected Neural Network](#fully-connected-nn)
+5. [Bidirectional Encoder Representations from Transformers (BERT)](#bert)
 
 ---
 ## Support Vector Machine

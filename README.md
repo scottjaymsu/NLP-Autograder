@@ -11,19 +11,17 @@ The Natural Language Processing (NLP) Essay Autograder is a system designed to a
 ![image](https://github.com/user-attachments/assets/39d47aee-d9de-4514-9c4e-0d18f56eddf9)
 
 ## Models
-1. [Linear Regression](#linear-regression)
-2. [Support Vector Machine  (SVM)](#support-vector-machine)
-3. [Recurrent Neural Network (RNN)](#rnn)
-4. [Convolution Neural Network (CNN)](#cnn)
-5. [Bidirectional Encoder Representations from Transformers (BERT)](#bert)
-6. [Fully-Connected Neural Network](#fully-connected-nn)
-
----
-
-## Linear Regression
+1. [Support Vector Machine  (SVM)](#support-vector-machine)
+2. [Recurrent Neural Network (RNN)](#rnn)
+3. [Convolution Neural Network (CNN)](#cnn)
+4. [Bidirectional Encoder Representations from Transformers (BERT)](#bert)
+5. [Fully-Connected Neural Network](#fully-connected-nn)
 
 ---
 ## Support Vector Machine
+### Overview
+The model used Bag of Words pre-processing step to convert text to tokenized form. Then trained SVM model, conducted hyperparameter tuning to choose best model based on evaluation splits: 5-fold CV error. Final model scores as follows, loss metric was accuracy:
+
 ### Mean and Standard Deviation of Each Hyperparameter
 The table below shows the results from the grid search for different combinations of hyperparameters (`C` and `kernel`) for the SVM model. The results include the mean and standard deviation of the training and test scores across the 5 folds of cross-validation.
 
@@ -42,11 +40,16 @@ The table below shows the results from the grid search for different combination
 | 25.38           | 0.12           | 5.67              | 0.02             | 10        | rbf            | `{'C': 10, 'kernel': 'rbf'}`           | 0.554530            | 0.588926            | 0.568430            | 0.568430            | 0.553317            | 0.566727          | 0.012862          | 3                 |
 | 11.07           | 0.10           | 3.45              | 0.04             | 10        | sigmoid        | `{'C': 10, 'kernel': 'sigmoid'}`       | 0.447987            | 0.489094            | 0.465155            | 0.459278            | 0.466835            | 0.465670          | 0.013445          | 10                |
 
-#### Optimal Hyperameters : {'C': 5, 'kernel': 'rbf'}
-#### 5-fold Cross-Validation Score : 5-fold CV error: 0.5715942837500493
-#### Test Set Accuracy : 0.5462382445141066
-#### Final training error : 0.9926137317441666
-#### Final test score : 0.554858934169279
+### Analysis
+| Metric                        | Value               |
+|-------------------------------|---------------------|
+| **Optimal Hyperparameters**    | `{'C': 5, 'kernel': 'rbf'}` |
+| **Evaluation (5-fold CV) Accuracy** | 0.572             |
+| **Training Accuracy**          | 0.993               |
+| **Testing Accuracy**           | 0.555               |
+
+The training accuracy is extremely high, which means that the model is almost certainly not underfitted. Looking at the evaluation accuracy and the testing accuracy, it can be seen that since they are extremely close, that the model was properly fit. In other words, the 5-fold cross validation accuracy is meant to represent what the testing accuracy would be. Since it is so close to the actual testing accuracy, this indicates that the model can’t be fitted any further.
+
 ---
 ## RNN
 ### Initial RNN Model Summary
@@ -73,11 +76,11 @@ The table below shows the results from the grid search for different combination
 ---
 ![{6DD5BAC0-FB12-48F1-9362-B8935BAB3326}](https://github.com/user-attachments/assets/a94e066d-6f1a-4be0-b021-2024b2f713ea)
 
---------------------------------------------------------------------------------------------------------------------------------
+---
 
 ![image](https://github.com/user-attachments/assets/562b6347-a542-456d-b565-e9219b4baf79)
 
-**CNN (Myles)** <br>
+## CNN (Myles)
 Training Accuracy: 0.985 <br>
 Evaluation (5-fold CV) Accuracy: 0.573 <br>
 Testing Accuracy: 0.5288 <br>
@@ -109,7 +112,6 @@ The model demonstrates strong learning ability with a high training accuracy of 
 
 ---------------------------------------------------------------------------------------------------------------------
 
----------------------------------------------------------------------------------------------------------------------
 
 ## Fully-Connected NN
 
@@ -140,18 +142,3 @@ Accuracy: <br>
 Training: 64% <br>
 Testing: 57%<br>
 Validation: 59% <br>
-
----------------
-
-SVM
-
-Overview: used Bag of Words pre-processing step to convert text to tokenized form. Then trained SVM model, conducted hyperparameter tuning to choose best model based on evaluation splits: 5-fold CV error. Final model scores as follows, loss metric was accuracy:
-
-
-Training Accuracy: 0.992
-Evaluation (5-fold CV) Accuracy: 0.571
-Testing Accuracy: 0.554
-
-
-Analysis
-The training accuracy is extremely high, which means that the model is almost certainly not underfitted. Looking at the evaluation accuracy and the testing accuracy, it can be seen that since they are extremely close, that the model was properly fit. In other words, the 5-fold cross validation accuracy is meant to represent what the testing accuracy would be. Since it is so close to the actual testing accuracy, this indicates that the model can’t be fitted any further.

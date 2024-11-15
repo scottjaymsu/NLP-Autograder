@@ -50,7 +50,7 @@ The Natural Language Processing (NLP) Essay Autograder is a system designed to a
 
 --------------------------------------------------------------------------------------------------------------------------------
 
-**## CNN (Myles)**
+**## CNN (Myles)** <br>
 Cross Entropy: <br>
 Training: 0.89 <br>
 Testing: 1.05 <br> 

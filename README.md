@@ -60,14 +60,14 @@ The Bag of Words pre-processing technique is used to convert text into tokenized
 Training Accuracy: **0.985**
 Evaluation (5-fold CV) Accuracy: **0.573**
 Testing Accuracy: **0.550**
-**1. Training Accuracy**
+**1. Training Accuracy:**
 This metric reflects the model's performance on the data it was trained on. A high training accuracy suggests that the model is able to learn and correctly classify most of the patterns in the training dataset.
 Why It Matters:
 Indicator of Model Learning: If training accuracy is too low, it means the model is not capturing patterns effectively, which may indicate underfitting.
 Risk of Overfitting: If training accuracy is excessively high compared to evaluation and testing accuracy, it may mean the model has memorized the training data instead of generalizing, leading to poor real-world performance.
 The training accuracy is 0.985, which is very high. This suggests that the model has learned well from the training data, but it is important to compare this with evaluation and testing accuracy to ensure it is not overfitting.
 
-**2. Evaluation Accuracy (5-Fold Cross-Validation)**
+**2. Evaluation Accuracy (5-Fold Cross-Validation):**
 Evaluation accuracy is calculated using a validation dataset or through cross-validation techniques. In a 5-fold CV, the dataset is split into five subsets, and the model is trained on four subsets while the remaining subset is used for validation. This process is repeated five times, and the average accuracy is reported.
 Why It Matters:
 Generalization Check: Evaluation accuracy gives an estimate of how well the model is expected to perform on unseen data. It acts as a proxy for the test set during training.
@@ -75,7 +75,7 @@ Overfitting Detection: A large gap between training and evaluation accuracy indi
 Hyperparameter Tuning: During model optimization, evaluation accuracy helps determine the best set of hyperparameters without leaking information from the test set.
 Evaluation accuracy is 0.573, which is much lower than the training accuracy. This suggests the model generalizes less effectively than it performs on the training data, it does not necessarily indicate overfitting as long as evaluation and testing accuracies are aligned.
 
-**3. Testing Accuracy**
+**3. Testing Accuracy:**
 Testing accuracy is the final metric that measures how well the model performs on completely unseen data. It represents real-world performance since the test dataset is not used during model training or evaluation.
 Why It Matters:
 Model Deployment Readiness: Testing accuracy reflects how the model is expected to perform in practical scenarios.

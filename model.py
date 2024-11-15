@@ -51,7 +51,7 @@ class Data(Dataset):
     def __getitem__(self, idx):
         return self.sentences[idx], self.labels[idx]
 
-def getEmbeddings(input : [], test : bool) -> torch.Tensor:
+def getEmbeddings(input : [], name : str) -> torch.Tensor:
     tokenizer = BertTokenizer.from_pretrained("bert-base-uncased")
     bert = BertModel.from_pretrained("bert-base-uncased").to(device)
     bert.eval()
@@ -68,10 +68,7 @@ def getEmbeddings(input : [], test : bool) -> torch.Tensor:
 
     newdata_tensor = torch.stack(newdata)
 
-    if test:
-        torch.save(newdata_tensor, "sentence_embeddings_test.pt")
-    else:
-        torch.save(newdata_tensor, "sentence_embeddings_train.pt")
+    torch.save(newdata_tensor, name + ".pt")
 
     return newdata_tensor.to(device)
 
@@ -83,6 +80,7 @@ def Eval(model, x, y):
     data_loader = DataLoader(data)
 
     total_loss = 0
+    correct = 0
 
     for x, y in data_loader:
         predicted = model.forward(x)
@@ -93,9 +91,13 @@ def Eval(model, x, y):
         y = y.to(torch.int64)
         loss = criterion(predicted, y)
 
-        total_loss += loss.item()
+        predicted = torch.argmax(predicted, dim=1)
+        if y == predicted:
+            correct += 1
 
-    return total_loss / len(data_loader)
+        total_loss += loss.item()
+    model.train()
+    return total_loss / len(data_loader), correct / len(data_loader)
 
 
 
@@ -103,6 +105,7 @@ def Eval(model, x, y):
 if __name__ == '__main__':
     x, y = read_data('train.csv')
     x_train, x_test, y_train, y_test = train_test_split(x, y, random_state=42)
+    x_test, x_val, y_test, y_val = train_test_split(x_test, y_test, random_state=42)
 
     model = lstm().to(device)
     criterion = torch.nn.CrossEntropyLoss()
@@ -113,13 +116,19 @@ if __name__ == '__main__':
     if os.path.exists(embed):
         x_train = torch.load(embed, weights_only = True).to(device)
     else:
-        x_train = getEmbeddings(x_train, False)
+        x_train = getEmbeddings(x_train, "sentence_embeddings_train")
 
     embed = cwd + "/sentence_embeddings_test.pt"
     if os.path.exists(embed):
         x_test = torch.load(embed, weights_only=True).to(device)
     else:
-        x_test = getEmbeddings(x_test, True)
+        x_test = getEmbeddings(x_test, "sentence_embeddings_test")
+
+    embed = cwd + "/sentence_embeddings_val.pt"
+    if os.path.exists(embed):
+        x_val = torch.load(embed, weights_only=True).to(device)
+    else:
+        x_val = getEmbeddings(x_val, "sentence_embeddings_val")
 
 
     data = Data(x_train, y_train)
@@ -134,7 +143,7 @@ if __name__ == '__main__':
     if os.path.exists(parameters):
         model.load_state_dict(torch.load(parameters))
     else:
-        for i in tqdm(range(800)):
+        for i in tqdm(range(500)):
             for x, y in data_loader:
                 modelOutput = model.forward(x)
 
@@ -149,9 +158,9 @@ if __name__ == '__main__':
                 ## used for generating plot
                 ## comment out for much faster training
 
-                x_vals.append(i)
-                training.append(loss.item())
-                testing.append(Eval(model,x_test,y_test))
+                # x_vals.append(i)
+                # training.append(loss.item())
+                # testing.append(Eval(model,x_test,y_test))
 
 
     torch.save(model.state_dict(), "parameters.pth")
@@ -164,8 +173,15 @@ if __name__ == '__main__':
     plt.legend(loc='upper right')
     plt.show()
 
+    training_loss = Eval(model, x_train, y_train)
+    testing_loss = Eval(model, x_test, y_test)
+    val_loss = Eval(model, x_val, y_val)
 
-    print(f"Training set cross entropy loss: {Eval(model, x_train, y_train)}")
-    print(f"Testing set cross entropy loss: {Eval(model, x_test,y_test)}")
+    print(f"Training: Cross entropy loss: {training_loss[0]}")
+    print(f"Training: Correct accuracy (%): {training_loss[1] * 100}")
+    print(f"Testing: Cross entropy loss: {testing_loss[0]}")
+    print(f"Testing: Correct accuracy (%): {testing_loss[1] * 100}")
+    print(f"Validatino: Cross entropy loss: {val_loss[0]}")
+    print(f"Validation: Correct accuracy (%): {val_loss[1] * 100}")
 
 

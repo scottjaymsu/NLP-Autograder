@@ -57,9 +57,7 @@ Testing Accuracy: 0.550 <br>
 
 **Overview:**
 The Bag of Words pre-processing technique is used to convert text into tokenized form before training the SVM model. Hyperparameter tuning was conducted to select the best model configuration using a 5-fold cross-validation approach. The final scores, evaluated with accuracy as the performance metric:
-Training Accuracy: **0.985**
-Evaluation (5-fold CV) Accuracy: **0.573**
-Testing Accuracy: **0.550**
+
 **Training Accuracy:**
 This metric reflects the model's performance on the data it was trained on. A high training accuracy suggests that the model is able to learn and correctly classify most of the patterns in the training dataset.
 Indicator of Model Learning: If training accuracy is too low, it means the model is not capturing patterns effectively, which may indicate underfitting.

@@ -27,6 +27,15 @@ The Natural Language Processing (NLP) Essay Autograder is a system designed to a
 
 
 ## CNN
+Cross Entropy:
+Training: 0.89
+Testing: 1.05
+Validation: 1.01
+
+Accuracy:
+Training: 64%
+Testing: 52.88%
+Validation: 59%
 
 ## BERT
 

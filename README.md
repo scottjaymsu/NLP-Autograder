@@ -131,14 +131,86 @@ Low accuracy during training indicates that the model is underfitting. Given eno
 
 
 
-## BERT
+Bert
 
-Cross Entropy: <br>
-Training: .89<br>
-Testing: 1.05<br>
-Validation: 1.01<br>
+Bert stands for Bidirectional Encoder Representations from Transformers, and is used in a wide range of natural language processing tasks. Bert is bidirectional, meaning it reads text from left to right simultaneously. It is trained to predict a masked word or sentence from a given block of text. This training allows Bert to find connections and establish context in a given block of text. This is useful for text-classification, which is our goal for this project. Bert itself doesn’t process raw text, the input must first be tokenized. This is simply the process of transforming the text into numbers that Bert can interpret. Bert expects an id, attention mask, and token type ids. The id is the numerical representation of a word or subword, the attention mask represents which ids are from an input and which are padding, and the token type ids are a mask to differentiate between different sequences in an input, such as a question and an answer. 
 
-Accuracy: <br>
-Training: 64% <br>
-Testing: 57%<br>
-Validation: 59% <br>
+Throughout the development of this project, many different layers were connected to the output of Bert in order to act as classification layers. These layers take the context learned by Bert, and are trained to correctly classify the score of an essay. The results from a single linear layer, trained for 500 epochs with a cross entropy loss function, is shown below. 
+
+Statistics for Testing
+
+Cross entropy loss: 1.0282892952101272
+
+Correct accuracy (%): 56.390977443609025
+
+Average absolute error:  0.4912280738353729
+
+Classification report:
+
+              precision    recall  f1-score   support
+
+           0       0.52      0.18      0.27       124
+
+           1       0.58      0.66      0.62       399
+
+           2       0.60      0.58      0.59       600
+
+           3       0.51      0.71      0.59       363
+
+           4       0.46      0.13      0.20        94
+
+           5       0.00      0.00      0.00        16
+
+    accuracy                           0.56      1596
+
+   macro avg       0.45      0.37      0.38      1596
+
+weighted avg       0.56      0.56      0.54      1596
+<img width="677" alt="Screenshot 2024-11-27 at 4 13 36 PM" src="https://github.com/user-attachments/assets/5ab05050-8d21-41f1-ba82-2ca17de5f2cc">
+
+The green line depicts the absolute mean error for the testing set throughout training, while the other two relations depict the cross entropy loss for training and testing. 
+<img width="688" alt="Screenshot 2024-11-27 at 4 13 46 PM" src="https://github.com/user-attachments/assets/e3d5049f-ca32-4d91-8765-d96a49985f97">
+
+
+Similar results were obtained when using combinations of LSTM layers, sigmoid layers, linear layers. Notably, the model has a much higher accuracy rate for more common classifications, while it does much worse of classifications that aren’t as common in the training data. This can be seen in the confusion matrix for testing, which shows the model did not predict a single 5 score essay correctly. This distribution of scores for the entire dataset is shown below. 
+<img width="621" alt="Screenshot 2024-11-27 at 4 13 55 PM" src="https://github.com/user-attachments/assets/fb72b116-d6b3-4bee-855d-2923d161ec72">
+
+
+In order to help improve the models performance on less frequent classifications, I tried changing the loss function. I created a vector of weights, where each weight corresponds to a class. The weight for each class is computed as Wi = NN Ci, where N is the number of samples, and Ci is the number of samples with target classification i. This gives a larger weight to classifications that occur less frequently. The following results were obtained from using this new loss function. 
+
+Statistics for Testing
+
+Cross entropy loss: 1.2106342015689926
+
+Correct accuracy (%): 46.99248120300752
+
+Average absolute error:  0.6936089992523193
+
+Classification report:
+
+              precision    recall  f1-score   support
+
+           0       0.30      0.64      0.41       124
+
+           1       0.60      0.48      0.53       399
+
+           2       0.66      0.40      0.50       600
+
+           3       0.47      0.54      0.50       363
+
+           4       0.23      0.37      0.29        94
+
+           5       0.09      0.50      0.16        16
+
+    accuracy                           0.47      1596
+
+   macro avg       0.39      0.49      0.40      1596
+
+weighted avg       0.54      0.47      0.49      1596
+<img width="653" alt="Screenshot 2024-11-27 at 4 14 05 PM" src="https://github.com/user-attachments/assets/c22468b0-6754-4578-a2a0-e00c23dadecc">
+
+
+The new loss function raises the probability the model correctly predicts higher scores. However, it now predicts these classes at a very high rate, which is shown from its precision score of .09 for score 5. This means only 9% of all score 5 predictions are actually score 5. For this reason, the total accuracy of the model is significantly less than the one trained with a non-weighted cross entropy loss function.
+
+
+

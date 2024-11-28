@@ -126,8 +126,6 @@ After generating feature vectors, the 3 layer FCNN model was trained with batch 
 Over the 500 epoch for which the model, accuracy increased logistically to ~65% and loss decreased logisitically, as can be seen in the below learning curves:
 ![image](https://github.com/user-attachments/assets/9bb65094-d71b-4053-a51f-97f0f99a9247)
 
-Final accuracy on the training set was computed to be: 0.6515863689776733 <br>
-
 Model performance per class can be observed in the form of a confusion table below:
 ![image](https://github.com/user-attachments/assets/7c7918cc-eb3b-488e-bf4c-6ed24a08251e)
 
@@ -135,15 +133,22 @@ It is apparent from this confusion matrix that after training the model classifi
 
 Below are the per class accuracies, precisions, recalls, and F1 scores:
 
-         Accuracy  Precision    Recall  Fbeta Score
-Class 0  0.945212   0.564069  0.908511     0.696007
-Class 1  0.837544   0.725223  0.655228     0.688451
-Class 2  0.752497   0.689435  0.571254     0.624805
-Class 3  0.824765   0.620277  0.625397     0.622826
-Class 4  0.945946   0.511278  0.887728     0.648855
-Class 5  0.997209   0.756410  1.000000     0.861314
+| Class    | Accuracy | Precision | Recall   | F1 Score |
+|----------|----------|-----------|----------|--------------|
+| Class 0  | 0.945212 | 0.564069  | 0.908511 | 0.696007     |
+| Class 1  | 0.837544 | 0.725223  | 0.655228 | 0.688451     |
+| Class 2  | 0.752497 | 0.689435  | 0.571254 | 0.624805     |
+| Class 3  | 0.824765 | 0.620277  | 0.625397 | 0.622826     |
+| Class 4  | 0.945946 | 0.511278  | 0.887728 | 0.648855     |
+| Class 5  | 0.997209 | 0.756410  | 1.000000 | 0.861314     |
 
+As can be seen, per class accuracy is high after training, with scores (classes) falling in the middle of the distribution having the highest inaccuracies. This indicates that trained model is most accurate when identifying scores that are either very good or very poor, but has more trouble descerning between more average scores. It is worth noting that recall is higher than precision for scores, indicating that the models overclassify training data as one of these scores.
 
+Ultimately, final accuracy on the training set was computed to be: 0.6515863689776733 <br>
+
+**Validation:**
+<br>
+5-fold cross-validation was performed on models to ensure that the model parameters that best balances qualities such as high accuracy, low overfitting, low underfitting, and reasonable performance were found. 
 
 
 

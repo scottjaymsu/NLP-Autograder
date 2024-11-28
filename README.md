@@ -93,10 +93,9 @@ A Convolutional Neural Network (CNN) was implemented to perform multi-class clas
 
 The dataset comprises a total of 8,510 samples distributed across six classes as follows:
 
-Interpretation: The dataset exhibits significant class imbalance, with classes 3.0, 2.0, and 4.0 being the most prevalent, while classes 1.0, 5.0, and especially 6.0 are underrepresented. This imbalance poses challenges for the model, as it may lead to biased learning favoring majority classes, thereby adversely affecting the performance on minority classes.
+The dataset exhibits significant class imbalance, with classes 3.0, 2.0, and 4.0 being the most prevalent, while classes 1.0, 5.0, and especially 6.0 are underrepresented. This imbalance poses challenges for the model, as it may lead to biased learning favoring majority classes, thereby adversely affecting the performance on minority classes.
 
 **Training Accuracy**
-Metric: Training Accuracy
 Value: 0.9337
 
 The training accuracy of 0.9337 indicates that the CNN model performs exceptionally well on the training data, correctly classifying approximately 93.37% of the samples it was trained on. This high accuracy suggests that the model has effectively learned the underlying patterns and relationships within the training dataset.
@@ -105,7 +104,6 @@ Model Learning: The high training accuracy confirms that the model has successfu
 Risk of Overfitting: While high training accuracy is desirable, it raises concerns about potential overfitting, especially when there is a notable discrepancy between training and validation/testing accuracies. In this case, the validation and testing accuracies are significantly lower, suggesting that the model may not generalize well to unseen data.
 
 **Validation Accuracy**
-Metric: Validation Accuracy
 Value: 0.5159
 
 The validation accuracy of 0.5159 reflects the model's performance on a subset of data that was not used during training. This metric serves as an indicator of the model's ability to generalize its learning to new, unseen data.
@@ -115,7 +113,6 @@ Overfitting Detection: The substantial gap between the high training accuracy (0
 Hyperparameter Tuning: This discrepancy underscores the necessity for further hyperparameter tuning, regularization techniques, or data augmentation strategies to enhance the model's ability to generalize.
 
 **Testing Accuracy**
-Metric: Testing Accuracy
 Value: 0.5429
 The testing accuracy of 0.5429 measures the model's performance on an entirely unseen dataset, providing an unbiased evaluation of its real-world applicability.
 

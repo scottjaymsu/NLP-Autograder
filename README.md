@@ -79,6 +79,9 @@ The training accuracy is extremely high, which means that the model is almost ce
 ---
 
 ![image](https://github.com/user-attachments/assets/562b6347-a542-456d-b565-e9219b4baf79)
+---
+### RNN Analysis 
+From observing the resulting accuracies for each individual datasets, it was determined that the accuracy is most negatively impacted by scoring classes (5 & 6). This was due to a combination of our training/testing splits, as well as the data used to train the model. The dataset used did not have a large quantity essay representations for higher grading criteria; therefore, this negatively impacted the model's ability to train to these ranges. 
 
 ## CNN (Myles)
 Training Accuracy: 0.985 <br>

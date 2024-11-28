@@ -119,7 +119,10 @@ The model demonstrates strong learning ability with a high training accuracy of 
 Fully-connected neural networks can be used to identify and learn complex decision spaces given that the data from which the network learns is properly represented. To perform essay scoring with a fully-connected neural network, 150-500 word essays were first tokenized utilizing a BERT tokenizer. Tokenized text was then passed to the "bert-base-uncased" pretrained model to generate embeddings for the text. From these embeddings, the most relevant for usage in the case of a fully-connected neural network is the CLS token, a vector which captures longer-term relationships between words within text. These tokens were then used as feature vectors on which a fully-connected, 3 layer neural network utilizing sigmoid activation functions was trained for 500 epochs, cross-validated to perform hyper-parameter tuning, and tested.
 
 **Training:**
+After generating feature vectors, the 3 layer FCNN model was trained with batch sizes of 64 on an 80% split of the data over 500 epochs. An Adam optimizer was used, with an initial learning rate of 0.0001. The hidden layer consisted of 128 units, and a dropout of 0.5 was used after the initial layer to attempt to reduce overfitting. 
 
+Over the 500 epoch for which the model, accuracy increased logistically to ~65% and loss decreased logisitically, as can be seen in the below learning curves:
+![image](https://github.com/user-attachments/assets/9bb65094-d71b-4053-a51f-97f0f99a9247)
 
 
 

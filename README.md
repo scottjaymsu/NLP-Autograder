@@ -85,34 +85,146 @@ The training accuracy is extremely high, which means that the model is almost ce
 From observing the resulting evaluation metrics for each class, it was determined that the accuracy is most negatively impacted by scoring classes (5 & 6). This was due to a combination of our training/testing splits, as well as the data used to train the model. The dataset used did not have a large quantity essay representations for higher grading criteria; therefore, this negatively impacted the model's ability to train to these ranges. 
 
 ## CNN (Myles)
-Training Accuracy: 0.985 <br>
-Evaluation (5-fold CV) Accuracy: 0.573 <br>
-Testing Accuracy: 0.5288 <br>
+Training Accuracy: 0.9337 <br>
+Validation Accuracy: 0.5159 <br>
+Testing Accuracy: 0.5429 <br>
 
-![image](https://github.com/user-attachments/assets/ae4b1ce4-94a4-4697-b89d-dceac526808d)
+Total samples: 8510
+Classes distribution:
+score
+3.0    3099
+2.0    2297
+4.0    1964
+1.0     602
+5.0     474
+6.0      74
+Name: count, dtype: int64
+Number of classes: 6
+Training samples: 6808
+Validation samples: 851
+Test samples: 851
 
 **Overview:**
-The Bag of Words pre-processing technique is used to convert text into tokenized form before training the SVM model. Hyperparameter tuning was conducted to select the best model configuration using a 5-fold cross-validation approach. The final scores, evaluated with accuracy as the performance metric:
+A Convolutional Neural Network (CNN) was implemented to perform multi-class classification on textual data sourced from the train.csv dataset, which comprises 8,510 samples distributed across six classes. The preprocessing pipeline involved tokenizing the text data using the Tokenizer from Keras, converting texts into sequences of integers, and padding these sequences to ensure uniform input length of 500 tokens. The model architecture consists of embedding, convolutional, pooling, dense, and dropout layers designed to capture and generalize complex patterns within the data. The model was trained using an 80-10-10 split for training, validation, and testing, respectively, with early stopping employed to prevent overfitting. The primary performance metric used for evaluation was accuracy, supplemented by precision, recall, F1-score, and Quadratic Weighted Kappa (QWK) to provide a comprehensive assessment of the model's performance across different classes.
 
-![image](https://github.com/user-attachments/assets/22d1afa4-ba49-4780-b091-81714973e4d6)
+Sample Distribution
+The dataset comprises a total of 8,510 samples distributed across six classes as follows:
 
-**Training Accuracy:**
-This metric reflects the model's performance on the data it was trained on. A high training accuracy suggests that the model is able to learn and correctly classify most of the patterns in the training dataset.
-Indicator of Model Learning: If training accuracy is too low, it means the model is not capturing patterns effectively, which may indicate underfitting.
-Risk of Overfitting: If training accuracy is excessively high compared to evaluation and testing accuracy, it may mean the model has memorized the training data instead of generalizing, leading to poor real-world performance.
-The training accuracy is 0.985, which is very high. This suggests that the model has learned well from the training data, but it is important to compare this with evaluation and testing accuracy to ensure it is not overfitting.
+Class 3.0: 3,099 samples
+Class 2.0: 2,297 samples
+Class 4.0: 1,964 samples
+Class 1.0: 602 samples
+Class 5.0: 474 samples
+Class 6.0: 74 samples
+Interpretation: The dataset exhibits significant class imbalance, with classes 3.0, 2.0, and 4.0 being the most prevalent, while classes 1.0, 5.0, and especially 6.0 are underrepresented. This imbalance poses challenges for the model, as it may lead to biased learning favoring majority classes, thereby adversely affecting the performance on minority classes.
 
-**Evaluation Accuracy (5-Fold Cross-Validation):**
-Evaluation accuracy is calculated using a validation dataset or through cross-validation techniques. In a 5-fold CV, the dataset is split into five subsets, and the model is trained on four subsets while the remaining subset is used for validation. This process is repeated five times, and the average accuracy is reported.
-Generalization Check: Evaluation accuracy gives an estimate of how well the model is expected to perform on unseen data. It acts as a proxy for the test set during training.
-Overfitting Detection: A large gap between training and evaluation accuracy indicates overfitting, where the model performs well on training data but struggles on validation data.
-Hyperparameter Tuning: During model optimization, evaluation accuracy helps determine the best set of hyperparameters without leaking information from the test set.
-Evaluation accuracy is 0.573, which is much lower than the training accuracy. This suggests the model generalizes less effectively than it performs on the training data, it does not necessarily indicate overfitting as long as evaluation and testing accuracies are aligned.
+**Training Accuracy**
+Metric: Training Accuracy
+Value: 0.9337
+Interpretation: The training accuracy of 0.9337 indicates that the CNN model performs exceptionally well on the training data, correctly classifying approximately 93.37% of the samples it was trained on. This high accuracy suggests that the model has effectively learned the underlying patterns and relationships within the training dataset.
+Indicators: Model Learning: The high training accuracy confirms that the model has successfully captured and memorized the features present in the training data.
+Risk of Overfitting: While high training accuracy is desirable, it raises concerns about potential overfitting, especially when there is a notable discrepancy between training and validation/testing accuracies. In this case, the validation and testing accuracies are significantly lower, suggesting that the model may not generalize well to unseen data.
 
-**Testing Accuracy:**
-Testing accuracy is the final metric that measures how well the model performs on completely unseen data. It represents real-world performance since the test dataset is not used during model training or evaluation. Model Deployment Readiness: Testing accuracy reflects how the model is expected to perform in practical scenarios.
 
-The model demonstrates strong learning ability with a high training accuracy of 0.985, indicating it effectively captures patterns in the training data. However, the evaluation accuracy of 0.573 and testing accuracy of 0.550 suggest moderate generalization to unseen data. The close alignment between evaluation and testing accuracies confirms that the cross-validation process reliably estimated the model's real-world performance. While there is no significant overfitting or underfitting, the noticeable gap between training and evaluation/testing accuracies suggests the model may overfit slightly to the training data. To improve, the model could benefit from regularization, refined feature engineering, or more diverse training data to better capture broader patterns. Despite this, the alignment of evaluation and testing scores provides confidence that the model is well-calibrated for deployment. Further optimization could enhance performance, but the current metrics indicate a functional and reliable model for practical use.
+
+Thought for 7 seconds
+CNN Model Performance Summary
+Training Accuracy: 0.9337
+Validation Accuracy: 0.5159
+Testing Accuracy: 0.5429
+
+Overview
+A Convolutional Neural Network (CNN) was implemented to perform multi-class classification on textual data sourced from the train.csv dataset, which comprises 8,510 samples distributed across six classes. The preprocessing pipeline involved tokenizing the text data using the Tokenizer from Keras, converting texts into sequences of integers, and padding these sequences to ensure uniform input length of 500 tokens. The model architecture consists of embedding, convolutional, pooling, dense, and dropout layers designed to capture and generalize complex patterns within the data. The model was trained using an 80-10-10 split for training, validation, and testing, respectively, with early stopping employed to prevent overfitting. The primary performance metric used for evaluation was accuracy, supplemented by precision, recall, F1-score, and Quadratic Weighted Kappa (QWK) to provide a comprehensive assessment of the model's performance across different classes.
+
+Sample Distribution
+The dataset comprises a total of 8,510 samples distributed across six classes as follows:
+
+Class 3.0: 3,099 samples
+Class 2.0: 2,297 samples
+Class 4.0: 1,964 samples
+Class 1.0: 602 samples
+Class 5.0: 474 samples
+Class 6.0: 74 samples
+Interpretation:
+The dataset exhibits significant class imbalance, with classes 3.0, 2.0, and 4.0 being the most prevalent, while classes 1.0, 5.0, and especially 6.0 are underrepresented. This imbalance poses challenges for the model, as it may lead to biased learning favoring majority classes, thereby adversely affecting the performance on minority classes.
+
+**Training Accuracy**
+Metric: Training Accuracy
+Value: 0.9337
+
+Interpretation:
+The training accuracy of 0.9337 indicates that the CNN model performs exceptionally well on the training data, correctly classifying approximately 93.37% of the samples it was trained on. This high accuracy suggests that the model has effectively learned the underlying patterns and relationships within the training dataset.
+
+Indicators: 
+Model Learning: The high training accuracy confirms that the model has successfully captured and memorized the features present in the training data.
+Risk of Overfitting: While high training accuracy is desirable, it raises concerns about potential overfitting, especially when there is a notable discrepancy between training and validation/testing accuracies. In this case, the validation and testing accuracies are significantly lower, suggesting that the model may not generalize well to unseen data.
+
+**Validation Accuracy**
+Metric: Validation Accuracy
+Value: 0.5159
+Interpretation: The validation accuracy of 0.5159 reflects the model's performance on a subset of data that was not used during training. This metric serves as an indicator of the model's ability to generalize its learning to new, unseen data.
+Indicators:
+Generalization Check: A validation accuracy slightly above random guessing (for a six-class classification problem, random guessing would yield approximately 16.67% accuracy) indicates that the model has learned some meaningful patterns from the data. However, the performance is modest, suggesting room for improvement in generalization.
+Overfitting Detection: The substantial gap between the high training accuracy (0.9337) and the lower validation accuracy (0.5159) points towards overfitting. The model performs well on the training data but fails to maintain similar performance on validation data, indicating that it may have memorized the training samples rather than learning to generalize.
+Hyperparameter Tuning: This discrepancy underscores the necessity for further hyperparameter tuning, regularization techniques, or data augmentation strategies to enhance the model's ability to generalize.
+
+**Testing Accuracy**
+Metric: Testing Accuracy
+Value: 0.5429
+Interpretation: The testing accuracy of 0.5429 measures the model's performance on an entirely unseen dataset, providing an unbiased evaluation of its real-world applicability.
+Indicators: Model Deployment Readiness: A testing accuracy of approximately 54.29% indicates that the model has moderate effectiveness in practical scenarios. While it performs better than random guessing, the accuracy suggests that the model may require further refinement for reliable deployment.
+Consistency with Validation: The close alignment between validation accuracy (0.5159) and testing accuracy (0.5429) suggests that the validation set was a reliable proxy for the test set during training. This consistency reinforces the validity of the observed performance metrics.
+
+![image](https://github.com/user-attachments/assets/972d0990-537d-4134-b9ea-c03e56c735ff)
+
+Interpretation:
+
+Class Imbalance Impact: The classification report highlights the detrimental impact of class imbalance on model performance. Classes 4.0 and 5.0, which have the fewest samples (47 and 8 respectively), exhibit zero precision, recall, and F1-scores. This indicates that the model fails to correctly predict these minority classes.
+Performance by Class:
+Classes 1.0 and 2.0: These classes have higher support and demonstrate moderate precision and recall, suggesting that the model can somewhat reliably predict them.
+Classes 0.0 and 3.0: These classes have lower support and exhibit poor performance metrics, indicating challenges in accurately classifying these categories.
+Overall Metrics:
+Accuracy: The overall accuracy of 54% reflects the model's ability to correctly classify samples across all classes.
+Macro Average: The macro-averaged precision, recall, and F1-score (0.33, 0.31, 0.29 respectively) provide an unweighted mean of the metrics across all classes, highlighting the poor performance on minority classes.
+Weighted Average: The weighted averages (0.50, 0.54, 0.51) take into account the number of samples in each class, offering a more balanced view of performance but still indicating room for improvement.
+
+![image](https://github.com/user-attachments/assets/80d56b2f-6b90-4a83-845d-47f701459619)
+
+The confusion matrix visualizes the model's performance across different classes by displaying the number of correct and incorrect predictions for each class. It reveals that the model struggles particularly with classes 0.0, 4.0, and 5.0, where predictions are either inaccurately assigned to other classes or not predicted at all. The high number of misclassifications in these classes underscores the challenges posed by class imbalance and the model's limited ability to generalize effectively to less represented categories.
+
+![image](https://github.com/user-attachments/assets/a05fc47e-42a0-48d0-bf47-e3ff3b9e1a67)
+
+The Receiver Operating Characteristic (ROC) curves for each class illustrate the trade-off between true positive rates and false positive rates. The Area Under the Curve (AUC) values provide a measure of the model's ability to distinguish between classes. In this scenario, the ROC curves indicate that the model has varying degrees of discriminatory power across different classes. Classes with higher AUC values demonstrate better performance in distinguishing between positive and negative instances, while lower AUC values suggest poor discrimination. The overall moderate AUC values reflect the model's limited effectiveness in differentiating between classes, particularly those with fewer samples.
+
+![image](https://github.com/user-attachments/assets/79149cd0-1918-4027-a14f-aef636b412fe)
+
+The CNN model comprises the following layers:
+
+Embedding Layer: Transforms input tokens into dense vectors of size 128, facilitating the capture of semantic relationships between words.
+Conv1D Layer: Applies 128 filters with a kernel size of 5 to extract local features from the input sequences.
+Global Max Pooling Layer: Reduces the dimensionality by selecting the maximum value from each feature map, effectively capturing the most salient features.
+Dense Layer: Contains 64 units with ReLU activation, enabling the model to learn complex, non-linear combinations of the extracted features.
+Dropout Layer: Implements a dropout rate of 0.5 to mitigate overfitting by randomly deactivating half of the neurons during training.
+Output Layer: A Dense layer with 6 units and softmax activation, facilitating multi-class classification across the six target classes.
+The model consists of approximately 2.89 million trainable parameters, enabling it to capture intricate patterns within the data. However, the substantial number of parameters also increases the risk of overfitting, especially given the observed performance metrics.
+
+![image](https://github.com/user-attachments/assets/5cde97d0-96c1-4080-87a6-863c69c65c40)
+
+![image](https://github.com/user-attachments/assets/93f1cf74-9ea3-420c-a21a-4986098998ed)
+
+Training Accuracy: The training accuracy shows a steady and significant increase across epochs, rising from 29.87% in the first epoch to 93.37% in the tenth epoch. This trend indicates that the model is effectively learning and fitting the training data over time.
+Validation Accuracy: In contrast, the validation accuracy exhibits minor fluctuations, increasing initially but then plateauing and even slightly decreasing in later epochs. This stagnation suggests that the model's ability to generalize to unseen data is not improving in tandem with its performance on the training data.
+Loss:
+
+Training Loss: There is a consistent decrease in training loss from 1.6209 in the first epoch to 0.2570 in the tenth epoch, indicating that the model is minimizing its error on the training data effectively.
+Validation Loss: The validation loss initially decreases, reaching its lowest point at epoch 7 (1.1345), but then begins to increase again. This upward trend in validation loss, coupled with the plateauing of validation accuracy, reinforces the indication of overfitting—the model becomes too tailored to the training data and loses its ability to perform well on new, unseen data.
+Conclusion
+The CNN model demonstrates a strong capacity to learn from the training data, as evidenced by the high training accuracy of 93.37% and the substantial reduction in training loss over the epochs. However, the validation accuracy of 51.59% and testing accuracy of 54.29% reveal that the model struggles to generalize effectively to unseen data. The significant disparity between training and validation/testing performances suggests that the model is overfitting, memorizing the training data rather than learning to generalize its patterns.
+
+Key Observations:
+
+Class Imbalance: The pronounced imbalance in the dataset, with certain classes being underrepresented, adversely affects the model's ability to accurately predict minority classes. This imbalance is reflected in the classification report, where minority classes exhibit poor precision, recall, and F1-scores.
+Overfitting Indicators: The high training accuracy coupled with modest validation and testing accuracies indicate that the model is overfitting to the training data. The increase in validation loss in later epochs further substantiates this concern.
 
 ---------------------------------------------------------------------------------------------------------------------
 

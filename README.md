@@ -166,10 +166,21 @@ Found below are the cross-validation results given these hyper-parameters:
 
 **Testing:**
 <br>
+Testing was performed on a 20% of the original dataset using the hyper-parameters found most reasonable during the validation stage. 
+<br>
+The overall accuracy of the model on the testing data was: 0.5323149236192715
+<br>
+This accuracy is ~10% lower than that the model's accuracy on the testing data, indicating that some overfitting on the training data is still present with the given hyper-parameters. It is also possible that some patterns exist in the testing data could exist the training data, but given that this accuracy is similar to that of the validation sets during cross-validation it is likely that this is not the case. <br>
+
+Model performance per class on the testing data can be observed in the form of a confusion table below:
+![image](https://github.com/user-attachments/assets/af3a68aa-fb6e-4dd8-abc6-d7a81c633c97)
 
 
-**Analysis:**
-Low accuracy during training indicates that the model is underfitting. Given enough training data and computational resources, it is possible that a simple fully connected NN may be capable of fitting data with higher accuracy, but given the fact that 1000 epochs were already used it would likely take a very high amount of epochs to produce an accurate result. In addition, accurate results on training & testing given an even higher amount of epochs would likely be overfit. Therefore, it is reasonable to conclude that a 3 layer perceptron is not the best choice of model for this task.
+
+
+
+**Conclusion:**
+Low accuracy during training indicates that the model is overfitting on the training data. Given enough training data and computational resources, it is possible that a simple fully connected NN may be capable of fitting data with higher accuracy, but given the fact that 1000 epochs were already used it would likely take a very high amount of epochs to produce an accurate result. In addition, accurate results on training & testing given an even higher amount of epochs would likely be overfit. Therefore, it is reasonable to conclude that a 3 layer perceptron is not the best choice of model for this task.
 
 
 ---------------------------------------------------------------------------------------------------------------------

@@ -126,6 +126,10 @@ After generating feature vectors, the 3 layer FCNN model was trained with batch 
 Over the 500 epoch for which the model, accuracy increased logistically to ~65% and loss decreased logisitically, as can be seen in the below learning curves:
 ![image](https://github.com/user-attachments/assets/9bb65094-d71b-4053-a51f-97f0f99a9247)
 
+Final accuracy on the training set was computed to be:
+0.6515863689776733
+
+
 
 
 

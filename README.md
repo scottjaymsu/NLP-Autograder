@@ -116,12 +116,13 @@ The model demonstrates strong learning ability with a high training accuracy of 
 ## Fully-Connected NN
 
 **Overview:**
-Performed text cleaning and tokenization using Python’s Natural Language Toolkit, then used Word2Vec to create feature vectors representing the data. After preprocessing was completed, fully connected neural network with 3 layers was trained using 1000 epochs. Performed 5-fold cross validation. Performed final test on test split of data.
+Fully-connected neural networks can be used to identify and learn complex decision spaces given that the data from which the network learns is properly represented. To perform essay scoring with a fully-connected neural network, 150-500 word essays were first tokenized utilizing a BERT tokenizer. Tokenized text was then passed to the "bert-base-uncased" pretrained model to generate embeddings for the text. From these embeddings, the most relevant for usage in the case of a fully-connected neural network is the CLS token, a vector which captures longer-term relationships between words within text. These tokens were then used as feature vectors on which a fully-connected, 3 layer neural network utilizing sigmoid activation functions was trained for 500 epochs, cross-validated to perform hyper-parameter tuning, and tested.
+
+**Training:**
 
 
-Training Accuracy: 0.57 <br>
-Evaluation (5 fold CV) Accuracy: 0.4 <br>
-Testing Accuracy: 0.41 <br>
+
+
 
 **Analysis:**
 Low accuracy during training indicates that the model is underfitting. Given enough training data and computational resources, it is possible that a simple fully connected NN may be capable of fitting data with higher accuracy, but given the fact that 1000 epochs were already used it would likely take a very high amount of epochs to produce an accurate result. In addition, accurate results on training & testing given an even higher amount of epochs would likely be overfit. Therefore, it is reasonable to conclude that a 3 layer perceptron is not the best choice of model for this task.

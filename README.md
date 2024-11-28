@@ -149,6 +149,7 @@ Ultimately, final accuracy on the training set was computed to be: 0.65158636897
 **Validation:**
 <br>
 5-fold cross-validation was performed on models to ensure that the model parameters that best balances qualities such as high accuracy, low overfitting, low underfitting, and reasonable performance were found. Some notes on hyper-parameter tuning:
+
     - Decreasing learning rate successfully completely eliminated overfitting, but also reduced overall accuracy to less than 50% and caused issues with performance
     - Increasing number of hidden units improves accuracy but decreases performance significantly; however, decreasing from 256 to 128 hidden units had only margin effects on fitting and accuracy
     - Decreases in batch size by a factor of 2 improved accuracy, but decreases in performance were so significant that such batch sizes were unreasonable to use

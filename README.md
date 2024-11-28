@@ -104,36 +104,7 @@ Training samples: 6808
 Validation samples: 851
 Test samples: 851
 
-**Overview:**
-A Convolutional Neural Network (CNN) was implemented to perform multi-class classification on textual data sourced from the train.csv dataset, which comprises 8,510 samples distributed across six classes. The preprocessing pipeline involved tokenizing the text data using the Tokenizer from Keras, converting texts into sequences of integers, and padding these sequences to ensure uniform input length of 500 tokens. The model architecture consists of embedding, convolutional, pooling, dense, and dropout layers designed to capture and generalize complex patterns within the data. The model was trained using an 80-10-10 split for training, validation, and testing, respectively, with early stopping employed to prevent overfitting. The primary performance metric used for evaluation was accuracy, supplemented by precision, recall, F1-score, and Quadratic Weighted Kappa (QWK) to provide a comprehensive assessment of the model's performance across different classes.
-
-Sample Distribution
-The dataset comprises a total of 8,510 samples distributed across six classes as follows:
-
-Class 3.0: 3,099 samples
-Class 2.0: 2,297 samples
-Class 4.0: 1,964 samples
-Class 1.0: 602 samples
-Class 5.0: 474 samples
-Class 6.0: 74 samples
-Interpretation: The dataset exhibits significant class imbalance, with classes 3.0, 2.0, and 4.0 being the most prevalent, while classes 1.0, 5.0, and especially 6.0 are underrepresented. This imbalance poses challenges for the model, as it may lead to biased learning favoring majority classes, thereby adversely affecting the performance on minority classes.
-
-**Training Accuracy**
-Metric: Training Accuracy
-Value: 0.9337
-Interpretation: The training accuracy of 0.9337 indicates that the CNN model performs exceptionally well on the training data, correctly classifying approximately 93.37% of the samples it was trained on. This high accuracy suggests that the model has effectively learned the underlying patterns and relationships within the training dataset.
-Indicators: Model Learning: The high training accuracy confirms that the model has successfully captured and memorized the features present in the training data.
-Risk of Overfitting: While high training accuracy is desirable, it raises concerns about potential overfitting, especially when there is a notable discrepancy between training and validation/testing accuracies. In this case, the validation and testing accuracies are significantly lower, suggesting that the model may not generalize well to unseen data.
-
-
-
-Thought for 7 seconds
-CNN Model Performance Summary
-Training Accuracy: 0.9337
-Validation Accuracy: 0.5159
-Testing Accuracy: 0.5429
-
-Overview
+**Overview**
 A Convolutional Neural Network (CNN) was implemented to perform multi-class classification on textual data sourced from the train.csv dataset, which comprises 8,510 samples distributed across six classes. The preprocessing pipeline involved tokenizing the text data using the Tokenizer from Keras, converting texts into sequences of integers, and padding these sequences to ensure uniform input length of 500 tokens. The model architecture consists of embedding, convolutional, pooling, dense, and dropout layers designed to capture and generalize complex patterns within the data. The model was trained using an 80-10-10 split for training, validation, and testing, respectively, with early stopping employed to prevent overfitting. The primary performance metric used for evaluation was accuracy, supplemented by precision, recall, F1-score, and Quadratic Weighted Kappa (QWK) to provide a comprehensive assessment of the model's performance across different classes.
 
 Sample Distribution
@@ -209,8 +180,6 @@ Output Layer: A Dense layer with 6 units and softmax activation, facilitating mu
 The model consists of approximately 2.89 million trainable parameters, enabling it to capture intricate patterns within the data. However, the substantial number of parameters also increases the risk of overfitting, especially given the observed performance metrics.
 
 ![image](https://github.com/user-attachments/assets/5cde97d0-96c1-4080-87a6-863c69c65c40)
-
-![image](https://github.com/user-attachments/assets/93f1cf74-9ea3-420c-a21a-4986098998ed)
 
 Training Accuracy: The training accuracy shows a steady and significant increase across epochs, rising from 29.87% in the first epoch to 93.37% in the tenth epoch. This trend indicates that the model is effectively learning and fitting the training data over time.
 Validation Accuracy: In contrast, the validation accuracy exhibits minor fluctuations, increasing initially but then plateauing and even slightly decreasing in later epochs. This stagnation suggests that the model's ability to generalize to unseen data is not improving in tandem with its performance on the training data.

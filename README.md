@@ -162,7 +162,7 @@ The most reasonable hyper-parameters for our model were found to be 500 epochs o
 <br>
 Found below are the cross-validation results given these hyper-parameters: 
 <br>
-<img width="232" alt="image" src="https://github.com/user-attachments/assets/3c246523-a7ee-4544-8d4e-1e7df77cceaf"> <br>
+<img width="596" alt="image" src="https://github.com/user-attachments/assets/db4c86fc-25ed-4fec-8c00-23bccd8c0f4f"> <br>
 
 **Testing:**
 <br>

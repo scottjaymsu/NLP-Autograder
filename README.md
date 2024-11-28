@@ -84,8 +84,8 @@ The training accuracy is extremely high, which means that the model is almost ce
 ### RNN Analysis 
 From observing the resulting evaluation metrics for each class, it was determined that the accuracy is most negatively impacted by scoring classes (5 & 6). This was due to a combination of our training/testing splits, as well as the data used to train the model. The dataset used did not have a large quantity essay representations for higher grading criteria; therefore, this negatively impacted the model's ability to train to these ranges. 
 
-**## CNN (Myles)**
-**Overview**
+**## CNN (Myles)** <br>
+Overview
 A Convolutional Neural Network (CNN) was implemented to perform multi-class classification on textual data sourced from the train.csv dataset, which comprises 8,510 samples distributed across six classes. The preprocessing pipeline involved tokenizing the text data using the Tokenizer from Keras, converting texts into sequences of integers, and padding these sequences to ensure uniform input length of 500 tokens. The model architecture consists of embedding, convolutional, pooling, dense, and dropout layers designed to capture and generalize complex patterns within the data. The model was trained using an 80-10-10 split for training, validation, and testing, respectively, with early stopping employed to prevent overfitting. The primary performance metric used for evaluation was accuracy, supplemented by precision, recall, F1-score, and Quadratic Weighted Kappa (QWK) to provide a comprehensive assessment of the model's performance across different classes.
 
 ![image](https://github.com/user-attachments/assets/f032d031-fcba-451c-afc2-112ad491ee2d)

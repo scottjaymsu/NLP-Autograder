@@ -160,7 +160,8 @@ Some notes on hyper-parameter tuning:
 
 The most reasonable hyper-parameters for our model were found to be 500 epochs on a model with 128 hidden units in the middle layer, using batch sizes of 64 and a learning rate of 0.0001.
 <br>
-Found below are the cross-validation results given these hyper-parameters:
+Found below are the cross-validation results given these hyper-parameters: 
+<br>
 <img width="232" alt="image" src="https://github.com/user-attachments/assets/3c246523-a7ee-4544-8d4e-1e7df77cceaf"> <br>
 
 **Testing:**

@@ -1,6 +1,6 @@
 # Natural Language Processing (NLP) Essay Autograder
 
-## Contributers: Jay Scott, Archan Tulpule, Myles Yankie, Nick Clark, Michael Plante
+### Contributers: Jay Scott, Archan Tulpule, Myles Yankie, Nick Clark, Michael Plante
 
 ## Project Description
 The Natural Language Processing (NLP) Essay Autograder is a system designed to automatically evaluate and score essays based on their quality. The input is an essay text, and the output is a numerical score ranging from 1 to 6, which reflects the essay's overall quality. The system uses NLP techniques to analyze various factors, such as grammar, structure, coherence, vocabulary, and content relevance, to generate an accurate and objective score. This tool can assist educators in providing quick, consistent feedback on student writing.

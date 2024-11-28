@@ -176,14 +176,26 @@ The overall accuracy of the model on the testing data was: 0.5323149236192715
 This accuracy is ~10% lower than that the model's accuracy on the testing data, indicating that some overfitting on the training data is still present with the given hyper-parameters. It is also possible that some patterns exist in the testing data could exist the training data, but given that this accuracy is similar to that of the validation sets during cross-validation it is likely that this is not the case. <br>
 
 Model performance per class on the testing data can be observed in the form of a confusion table below:
-![image](https://github.com/user-attachments/assets/af3a68aa-fb6e-4dd8-abc6-d7a81c633c97)
+![image](https://github.com/user-attachments/assets/af3a68aa-fb6e-4dd8-abc6-d7a81c633c97) 
 
+As with the training set, it is apparent that the largest single predicted value of any class is its actual label, however the aggregate of incorrect classifications significantly diminishes the accuracy. Additionally, as seen with the training data, the majority of misclassifications are by the smallest possible unit of misclassification.
 
+Below are the per class accuracies, precisions, recalls, and F1 scores for the model on the testing data:
 
+| Class    | Accuracy | Precision | Recall   | F1 Score |
+|----------|----------|-----------|----------|--------------|
+| Class 0  | 0.917744 | 0.473684  | 0.545455 | 0.507042     |
+| Class 1  | 0.788484 | 0.577253  | 0.622685 | 0.599109     |
+| Class 2  | 0.707403 | 0.635009  | 0.530327 | 0.577966     |
+| Class 3  | 0.777321 | 0.514620  | 0.452442 | 0.481532     |
+| Class 4  | 0.893655 | 0.255435  | 0.516484 | 0.341818     |
+| Class 5  | 0.980024 | 0.047619  | 0.066667 | 0.055556     |
 
+The above data indicates that, while some patterns in the testing data remain similar to the training data, there is a general decrease in the individual accuracies for each classification. This could be attributable to new patterns in the data that the model has not encountered before in training or due to overfitting on training data. It is notable that have been significant decreases in both precision and recall, and subsequently a decreases in F1 scores for all classes. However, the same pattern of recall remaining larger than precision on the low and high scores remains the same as in testing, indicating that the model still tends to score many essays with one of these scores. <br>
 
 **Conclusion:**
-Low accuracy during training indicates that the model is overfitting on the training data. Given enough training data and computational resources, it is possible that a simple fully connected NN may be capable of fitting data with higher accuracy, but given the fact that 1000 epochs were already used it would likely take a very high amount of epochs to produce an accurate result. In addition, accurate results on training & testing given an even higher amount of epochs would likely be overfit. Therefore, it is reasonable to conclude that a 3 layer perceptron is not the best choice of model for this task.
+<br>
+Lower accuracy of validation and testing sets compared trained data suggests that the model has a tendency to overfit. Given enough training data, more computational resources, and more representative feature vectors, it is possible that a 3 layer FCNN could increase its accuracy on testing sets and begin to accurately score essays in much the same way as a human graded would. Given the current conditions however, a FCNN only seems to be adequately useful at identifying a range of 3/6 scores in which an essay should be graded.   
 
 
 ---------------------------------------------------------------------------------------------------------------------

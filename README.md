@@ -84,13 +84,12 @@ The training accuracy is extremely high, which means that the model is almost ce
 ### RNN Analysis 
 From observing the resulting evaluation metrics for each class, it was determined that the accuracy is most negatively impacted by scoring classes (5 & 6). This was due to a combination of our training/testing splits, as well as the data used to train the model. The dataset used did not have a large quantity essay representations for higher grading criteria; therefore, this negatively impacted the model's ability to train to these ranges. 
 
-## CNN (Myles)
+**## CNN (Myles)**
 **Overview**
 A Convolutional Neural Network (CNN) was implemented to perform multi-class classification on textual data sourced from the train.csv dataset, which comprises 8,510 samples distributed across six classes. The preprocessing pipeline involved tokenizing the text data using the Tokenizer from Keras, converting texts into sequences of integers, and padding these sequences to ensure uniform input length of 500 tokens. The model architecture consists of embedding, convolutional, pooling, dense, and dropout layers designed to capture and generalize complex patterns within the data. The model was trained using an 80-10-10 split for training, validation, and testing, respectively, with early stopping employed to prevent overfitting. The primary performance metric used for evaluation was accuracy, supplemented by precision, recall, F1-score, and Quadratic Weighted Kappa (QWK) to provide a comprehensive assessment of the model's performance across different classes.
 
 ![image](https://github.com/user-attachments/assets/f032d031-fcba-451c-afc2-112ad491ee2d)
 
-Sample Distribution
 The dataset comprises a total of 8,510 samples distributed across six classes as follows:
 
 Interpretation: The dataset exhibits significant class imbalance, with classes 3.0, 2.0, and 4.0 being the most prevalent, while classes 1.0, 5.0, and especially 6.0 are underrepresented. This imbalance poses challenges for the model, as it may lead to biased learning favoring majority classes, thereby adversely affecting the performance on minority classes.
@@ -99,18 +98,17 @@ Interpretation: The dataset exhibits significant class imbalance, with classes 3
 Metric: Training Accuracy
 Value: 0.9337
 
-Interpretation:
 The training accuracy of 0.9337 indicates that the CNN model performs exceptionally well on the training data, correctly classifying approximately 93.37% of the samples it was trained on. This high accuracy suggests that the model has effectively learned the underlying patterns and relationships within the training dataset.
 
-Indicators: 
 Model Learning: The high training accuracy confirms that the model has successfully captured and memorized the features present in the training data.
 Risk of Overfitting: While high training accuracy is desirable, it raises concerns about potential overfitting, especially when there is a notable discrepancy between training and validation/testing accuracies. In this case, the validation and testing accuracies are significantly lower, suggesting that the model may not generalize well to unseen data.
 
 **Validation Accuracy**
 Metric: Validation Accuracy
 Value: 0.5159
-Interpretation: The validation accuracy of 0.5159 reflects the model's performance on a subset of data that was not used during training. This metric serves as an indicator of the model's ability to generalize its learning to new, unseen data.
-Indicators:
+
+The validation accuracy of 0.5159 reflects the model's performance on a subset of data that was not used during training. This metric serves as an indicator of the model's ability to generalize its learning to new, unseen data.
+
 Generalization Check: A validation accuracy slightly above random guessing (for a six-class classification problem, random guessing would yield approximately 16.67% accuracy) indicates that the model has learned some meaningful patterns from the data. However, the performance is modest, suggesting room for improvement in generalization.
 Overfitting Detection: The substantial gap between the high training accuracy (0.9337) and the lower validation accuracy (0.5159) points towards overfitting. The model performs well on the training data but fails to maintain similar performance on validation data, indicating that it may have memorized the training samples rather than learning to generalize.
 Hyperparameter Tuning: This discrepancy underscores the necessity for further hyperparameter tuning, regularization techniques, or data augmentation strategies to enhance the model's ability to generalize.
@@ -118,19 +116,17 @@ Hyperparameter Tuning: This discrepancy underscores the necessity for further hy
 **Testing Accuracy**
 Metric: Testing Accuracy
 Value: 0.5429
-Interpretation: The testing accuracy of 0.5429 measures the model's performance on an entirely unseen dataset, providing an unbiased evaluation of its real-world applicability.
-Indicators: Model Deployment Readiness: A testing accuracy of approximately 54.29% indicates that the model has moderate effectiveness in practical scenarios. While it performs better than random guessing, the accuracy suggests that the model may require further refinement for reliable deployment.
+The testing accuracy of 0.5429 measures the model's performance on an entirely unseen dataset, providing an unbiased evaluation of its real-world applicability.
+
+Model Deployment Readiness: A testing accuracy of approximately 54.29% indicates that the model has moderate effectiveness in practical scenarios. While it performs better than random guessing, the accuracy suggests that the model may require further refinement for reliable deployment.
 Consistency with Validation: The close alignment between validation accuracy (0.5159) and testing accuracy (0.5429) suggests that the validation set was a reliable proxy for the test set during training. This consistency reinforces the validity of the observed performance metrics.
 
 ![image](https://github.com/user-attachments/assets/972d0990-537d-4134-b9ea-c03e56c735ff)
-
-Interpretation:
 
 Class Imbalance Impact: The classification report highlights the detrimental impact of class imbalance on model performance. Classes 4.0 and 5.0, which have the fewest samples (47 and 8 respectively), exhibit zero precision, recall, and F1-scores. This indicates that the model fails to correctly predict these minority classes.
 Performance by Class:
 Classes 1.0 and 2.0: These classes have higher support and demonstrate moderate precision and recall, suggesting that the model can somewhat reliably predict them.
 Classes 0.0 and 3.0: These classes have lower support and exhibit poor performance metrics, indicating challenges in accurately classifying these categories.
-Overall Metrics:
 Accuracy: The overall accuracy of 54% reflects the model's ability to correctly classify samples across all classes.
 Macro Average: The macro-averaged precision, recall, and F1-score (0.33, 0.31, 0.29 respectively) provide an unweighted mean of the metrics across all classes, highlighting the poor performance on minority classes.
 Weighted Average: The weighted averages (0.50, 0.54, 0.51) take into account the number of samples in each class, offering a more balanced view of performance but still indicating room for improvement.
@@ -165,8 +161,6 @@ Training Loss: There is a consistent decrease in training loss from 1.6209 in th
 Validation Loss: The validation loss initially decreases, reaching its lowest point at epoch 7 (1.1345), but then begins to increase again. This upward trend in validation loss, coupled with the plateauing of validation accuracy, reinforces the indication of overfitting—the model becomes too tailored to the training data and loses its ability to perform well on new, unseen data.
 Conclusion
 The CNN model demonstrates a strong capacity to learn from the training data, as evidenced by the high training accuracy of 93.37% and the substantial reduction in training loss over the epochs. However, the validation accuracy of 51.59% and testing accuracy of 54.29% reveal that the model struggles to generalize effectively to unseen data. The significant disparity between training and validation/testing performances suggests that the model is overfitting, memorizing the training data rather than learning to generalize its patterns.
-
-Key Observations:
 
 Class Imbalance: The pronounced imbalance in the dataset, with certain classes being underrepresented, adversely affects the model's ability to accurately predict minority classes. This imbalance is reflected in the classification report, where minority classes exhibit poor precision, recall, and F1-scores.
 Overfitting Indicators: The high training accuracy coupled with modest validation and testing accuracies indicate that the model is overfitting to the training data. The increase in validation loss in later epochs further substantiates this concern.

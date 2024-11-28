@@ -150,6 +150,7 @@ Ultimately, final accuracy on the training set was computed to be: 0.65158636897
 <br>
 5-fold cross-validation was performed on models to ensure that the model parameters that best balances qualities such as high accuracy, low overfitting, low underfitting, and reasonable performance were found. 
 <br>
+<br>
 Some notes on hyper-parameter tuning: 
 <br>
     - Decreasing learning rate successfully completely eliminated overfitting, but also reduced overall accuracy to less than 50% and caused issues with performance <br>
@@ -159,6 +160,8 @@ Some notes on hyper-parameter tuning:
 
 The most reasonable hyper-parameters for our model were found to be 500 epochs on a model with 128 hidden units in the middle layer, using batch sizes of 64 and a learning rate of 0.0001.
 <br>
+Found below are the cross-validation results given these hyper-parameters:
+<img width="232" alt="image" src="https://github.com/user-attachments/assets/3c246523-a7ee-4544-8d4e-1e7df77cceaf"> <br>
 
 **Testing:**
 <br>

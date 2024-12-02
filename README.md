@@ -86,7 +86,7 @@ From observing the resulting evaluation metrics for each class, it was determine
 
 ----------------------------------------------------------------------------------------------------------------------
 
-**## CNN (Myles)** <br>
+## CNN (Myles) <br>
 A Convolutional Neural Network (CNN) was implemented to perform multi-class classification on textual data sourced from the train.csv dataset, which comprises 8,510 samples distributed across six classes. The preprocessing pipeline involved tokenizing the text data using the Tokenizer from Keras, converting texts into sequences of integers, and padding these sequences to ensure uniform input length of 500 tokens. The model architecture consists of embedding, convolutional, pooling, dense, and dropout layers designed to capture and generalize complex patterns within the data. The model was trained using an 80-10-10 split for training, validation, and testing, respectively, with early stopping employed to prevent overfitting. The primary performance metric used for evaluation was accuracy, supplemented by precision, recall, F1-score, and Quadratic Weighted Kappa (QWK) to provide a comprehensive assessment of the model's performance across different classes.
 
 ![image](https://github.com/user-attachments/assets/f032d031-fcba-451c-afc2-112ad491ee2d)
@@ -178,23 +178,26 @@ Fully-connected neural networks can be used to identify and learn complex decisi
 After generating feature vectors, the 3 layer FCNN model was trained with batch sizes of 64 on an 80% split of the data over 500 epochs. An Adam optimizer was used, with an initial learning rate of 0.0001. The hidden layer consisted of 128 units, and a dropout of 0.5 was used after the initial layer to attempt to reduce overfitting. 
 
 Over the 500 epoch for which the model, accuracy increased logistically to ~65% and loss decreased logisitically, as can be seen in the below learning curves:
-![image](https://github.com/user-attachments/assets/9bb65094-d71b-4053-a51f-97f0f99a9247)
+<img width="750" alt="image" src="https://github.com/user-attachments/assets/e73468e2-9aa8-408e-b46b-73768637d531">
 
-Model performance per class can be observed in the form of a confusion table below:
-![image](https://github.com/user-attachments/assets/7c7918cc-eb3b-488e-bf4c-6ed24a08251e)
+
+Model performance per class can be observed in the form of a confusion table below (zero-indexed):
+<img width="491" alt="image" src="https://github.com/user-attachments/assets/16dbc971-9784-422b-a721-ff558fca2a81">
+
 
 It is apparent from this confusion matrix that after training the model classifies the majority of the training data correctly, and if an essay is scored incorrectly it is usually only incorrect by 1 unit of scoring. In other words, for the ~35% of the training data that the trained FCNN misclassifies, the majority of these misclassifications are by the smallest unit of misclassification possible. <br>
 
 Below are the per class accuracies, precisions, recalls, and F1 scores:
 
-| Class    | Accuracy | Precision | Recall   | F1 Score |
-|----------|----------|-----------|----------|--------------|
-| Class 0  | 0.945212 | 0.564069  | 0.908511 | 0.696007     |
-| Class 1  | 0.837544 | 0.725223  | 0.655228 | 0.688451     |
-| Class 2  | 0.752497 | 0.689435  | 0.571254 | 0.624805     |
-| Class 3  | 0.824765 | 0.620277  | 0.625397 | 0.622826     |
-| Class 4  | 0.945946 | 0.511278  | 0.887728 | 0.648855     |
-| Class 5  | 0.997209 | 0.756410  | 1.000000 | 0.861314     |
+| Class    | Accuracy | Precision | Recall   | Fbeta Score |
+|----------|----------|-----------|----------|-------------|
+| Class 0  | 0.943743 | 0.555985  | 0.919149 | 0.692863    |
+| Class 1  | 0.836663 | 0.718514  | 0.663807 | 0.690078    |
+| Class 2  | 0.752644 | 0.690523  | 0.569625 | 0.624275    |
+| Class 3  | 0.825940 | 0.632293  | 0.591746 | 0.611348    |
+| Class 4  | 0.938014 | 0.473397  | 0.906005 | 0.621864    |
+| Class 5  | 0.997650 | 0.786667  | 1.000000 | 0.880597    |
+
 
 As can be seen, per class accuracy is high after training, with scores (classes) falling in the middle of the distribution having the highest inaccuracies. This indicates that trained model is most accurate when identifying scores that are either very good or very poor, but has more trouble descerning between more average scores. It is worth noting that recall is higher than precision for scores, indicating that the models overclassify training data as one of these scores.
 
@@ -216,7 +219,8 @@ The most reasonable hyper-parameters for our model were found to be 500 epochs o
 <br>
 Found below are the cross-validation results given these hyper-parameters: 
 <br>
-<img width="596" alt="image" src="https://github.com/user-attachments/assets/db4c86fc-25ed-4fec-8c00-23bccd8c0f4f"> <br>
+<img width="316" alt="image" src="https://github.com/user-attachments/assets/f298bc4e-d323-416c-82f7-b796b57446ee">
+
 
 **Testing:**
 <br>
@@ -226,21 +230,23 @@ The overall accuracy of the model on the testing data was: 0.5323149236192715
 <br>
 This accuracy is ~10% lower than that the model's accuracy on the testing data, indicating that some overfitting on the training data is still present with the given hyper-parameters. It is also possible that some patterns exist in the testing data could exist the training data, but given that this accuracy is similar to that of the validation sets during cross-validation it is likely that this is not the case. <br>
 
-Model performance per class on the testing data can be observed in the form of a confusion table below:
-![image](https://github.com/user-attachments/assets/af3a68aa-fb6e-4dd8-abc6-d7a81c633c97) 
+Model performance per class on the testing data can be observed in the form of a confusion table below (zero-indexed):
+<img width="486" alt="image" src="https://github.com/user-attachments/assets/b55babf8-1634-429e-9fd0-a2442e32b588">
+
 
 As with the training set, it is apparent that the largest single predicted value of any class is its actual label, however the aggregate of incorrect classifications significantly diminishes the accuracy. Additionally, as seen with the training data, the majority of misclassifications are by the smallest possible unit of misclassification.
 
 Below are the per class accuracies, precisions, recalls, and F1 scores for the model on the testing data:
 
-| Class    | Accuracy | Precision | Recall   | F1 Score |
-|----------|----------|-----------|----------|--------------|
-| Class 0  | 0.917744 | 0.473684  | 0.545455 | 0.507042     |
-| Class 1  | 0.788484 | 0.577253  | 0.622685 | 0.599109     |
-| Class 2  | 0.707403 | 0.635009  | 0.530327 | 0.577966     |
-| Class 3  | 0.777321 | 0.514620  | 0.452442 | 0.481532     |
-| Class 4  | 0.893655 | 0.255435  | 0.516484 | 0.341818     |
-| Class 5  | 0.980024 | 0.047619  | 0.066667 | 0.055556     |
+| Class    | Accuracy | Precision | Recall   | Fbeta Score |
+|----------|----------|-----------|----------|-------------|
+| Class 0  | 0.919506 | 0.482993  | 0.537879 | 0.508961    |
+| Class 1  | 0.787309 | 0.573222  | 0.634259 | 0.602198    |
+| Class 2  | 0.710928 | 0.646035  | 0.519440 | 0.575862    |
+| Class 3  | 0.787897 | 0.534314  | 0.560411 | 0.547051    |
+| Class 4  | 0.919506 | 0.328358  | 0.483516 | 0.391111    |
+| Class 5  | 0.981786 | 0.055556  | 0.066667 | 0.060606    |
+
 
 The above data indicates that, while some patterns in the testing data remain similar to the training data, there is a general decrease in the individual accuracies for each classification. This could be attributable to new patterns in the data that the model has not encountered before in training or due to overfitting on training data. It is notable that have been significant decreases in both precision and recall, and subsequently a decreases in F1 scores for all classes. However, the same pattern of recall remaining larger than precision on the low and high scores remains the same as in testing, indicating that the model still tends to score many essays with one of these scores. <br>
 

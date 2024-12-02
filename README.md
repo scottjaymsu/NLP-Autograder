@@ -189,7 +189,7 @@ It is apparent from this confusion matrix that after training the model classifi
 
 Below are the per class accuracies, precisions, recalls, and F1 scores:
 
-| Class    | Accuracy | Precision | Recall   | Fbeta Score |
+| Class    | Accuracy | Precision | Recall   | F1 Score |
 |----------|----------|-----------|----------|-------------|
 | Class 0  | 0.943743 | 0.555985  | 0.919149 | 0.692863    |
 | Class 1  | 0.836663 | 0.718514  | 0.663807 | 0.690078    |
@@ -219,7 +219,8 @@ The most reasonable hyper-parameters for our model were found to be 500 epochs o
 <br>
 Found below are the cross-validation results given these hyper-parameters: 
 <br>
-<img width="316" alt="image" src="https://github.com/user-attachments/assets/f298bc4e-d323-416c-82f7-b796b57446ee">
+<img width="370" alt="image" src="https://github.com/user-attachments/assets/6bce1a8b-092d-4007-a8d6-441e7f3c580b">
+
 
 
 **Testing:**
@@ -238,7 +239,7 @@ As with the training set, it is apparent that the largest single predicted value
 
 Below are the per class accuracies, precisions, recalls, and F1 scores for the model on the testing data:
 
-| Class    | Accuracy | Precision | Recall   | Fbeta Score |
+| Class    | Accuracy | Precision | Recall   | F1 Score |
 |----------|----------|-----------|----------|-------------|
 | Class 0  | 0.919506 | 0.482993  | 0.537879 | 0.508961    |
 | Class 1  | 0.787309 | 0.573222  | 0.634259 | 0.602198    |

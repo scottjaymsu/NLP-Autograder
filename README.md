@@ -201,7 +201,7 @@ Below are the per class accuracies, precisions, recalls, and F1 scores:
 
 As can be seen, per class accuracy is high after training, with scores (classes) falling in the middle of the distribution having the highest inaccuracies. This indicates that trained model is most accurate when identifying scores that are either very good or very poor, but has more trouble descerning between more average scores. It is worth noting that recall is higher than precision for scores, indicating that the models overclassify training data as one of these scores.
 
-Ultimately, final accuracy on the training set was computed to be: 0.6515863689776733 <br>
+Ultimately, final accuracy on the training set was computed to be: 0.6473266745005876 <br>
 
 **Validation:**
 <br>
@@ -227,11 +227,11 @@ Found below are the cross-validation results given these hyper-parameters:
 <br>
 Testing was performed on a 20% of the original dataset using the hyper-parameters found most reasonable during the validation stage. 
 <br>
-The overall accuracy of the model on the testing data was: 0.5323149236192715
+The overall accuracy of the model on the testing data was: 0.5534665099882491
 <br>
 This accuracy is ~10% lower than that the model's accuracy on the testing data, indicating that some overfitting on the training data is still present with the given hyper-parameters. It is also possible that some patterns exist in the testing data could exist the training data, but given that this accuracy is similar to that of the validation sets during cross-validation it is likely that this is not the case. <br>
 
-Model performance per class on the testing data can be observed in the form of a confusion table below (zero-indexed):
+Confusion table for testing data below (zero-indexed):
 <img width="486" alt="image" src="https://github.com/user-attachments/assets/b55babf8-1634-429e-9fd0-a2442e32b588">
 
 
